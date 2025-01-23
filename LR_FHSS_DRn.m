@@ -305,23 +305,28 @@ end
 % DR9
 [PA_S_DR9, PS_DR9, PS_DR9_Capture, Distance_DR9] = simulateLRFHSS(4, 2/3, 280, MonteCarlo);
 % LoRa
-
 figure;
 % DR8
-h(1) = plot(Distance / 1e3, PA_S_DR8, 'k-', 'LineWidth', 1.5, 'DisplayName', 'DR8 Analytical'); % Black solid line
+h(1) = plot(Distance / 1e3, PA_S_DR8, 'r-', 'LineWidth', 2, 'DisplayName', 'DR8 Analytical'); % Rouge, solide
 hold on;
-h(2) = plot(Distance / 1e3, PS_DR8 / MonteCarlo, 'm--', 'LineWidth', 1.5, 'DisplayName', 'DR8 Simulated'); % Magenta dashed line
-h(3) = plot(Distance / 1e3, PS_DR8_Capture / MonteCarlo, 'c-o', 'LineWidth', 1.5, 'DisplayName', 'DR8 Capture Effect'); % Cyan circles
+h(2) = plot(Distance / 1e3, PS_DR8 / MonteCarlo, 'b--', 'LineWidth', 2, 'DisplayName', 'DR8 Simulated'); % Bleu, pointillé
+h(3) = plot(Distance / 1e3, PS_DR8_Capture / MonteCarlo, 'g-o', 'LineWidth', 2, 'MarkerSize', 8, 'DisplayName', 'DR8 Capture Effect'); % Vert, cercles
 
 % DR9
-h(4) = plot(Distance_DR9 / 1e3, PA_S_DR9, 'k-.', 'LineWidth', 1.5, 'DisplayName', 'DR9 Analytical'); % Black dash-dot line
-h(5) = plot(Distance_DR9 / 1e3, PS_DR9 / MonteCarlo, 'm:', 'LineWidth', 1.5, 'DisplayName', 'DR9 Simulated'); % Magenta dotted line
-h(6) = plot(Distance_DR9 / 1e3, PS_DR9_Capture / MonteCarlo, 'c-s', 'LineWidth', 1.5, 'DisplayName', 'DR9 Capture Effect'); % Cyan squares
+h(4) = plot(Distance_DR9 / 1e3, PA_S_DR9, 'm-.', 'LineWidth', 2, 'DisplayName', 'DR9 Analytical'); % Magenta, trait-point
+h(5) = plot(Distance_DR9 / 1e3, PS_DR9 / MonteCarlo, 'c:', 'LineWidth', 2, 'DisplayName', 'DR9 Simulated'); % Cyan, pointillé
+h(6) = plot(Distance_DR9 / 1e3, PS_DR9_Capture / MonteCarlo, 'y-s', 'LineWidth', 2, 'MarkerSize', 8, 'DisplayName', 'DR9 Capture Effect'); % Jaune, carrés
 
 % Standard LoRa
-h(7) = plot(Distance_LoRa / 1e3, PA_S_LoRa, 'k-', 'LineWidth', 1.5, 'DisplayName', 'Standard LoRa Analytical'); % Black solid line
-h(8) = plot(Distance_LoRa / 1e3, PS_LoRa, 'm--', 'LineWidth', 1.5, 'DisplayName', 'Standard LoRa Simulated'); % Magenta dashed line
-h(9) = plot(Distance_LoRa / 1e3, PS_LoRa_Capture, 'c-d', 'LineWidth', 1.5, 'DisplayName', 'Standard LoRa Capture Effect'); % Cyan diamonds
+h(7) = plot(Distance_LoRa / 1e3, PA_S_LoRa, 'k-', 'LineWidth', 2, 'DisplayName', 'Standard LoRa Analytical'); % Noir, solide
+h(8) = plot(Distance_LoRa / 1e3, PS_LoRa, 'r--', 'LineWidth', 2, 'DisplayName', 'Standard LoRa Simulated'); % Rouge, pointillé
+h(9) = plot(Distance_LoRa / 1e3, PS_LoRa_Capture, 'b-d', 'LineWidth', 2, 'MarkerSize', 8, 'DisplayName', 'Standard LoRa Capture Effect'); % Bleu, losanges
+
+% Légende et axes
+legend(h, 'Location', 'best', 'FontSize', 12);
+xlabel('Distance (km)', 'FontSize', 14);
+ylabel('Probability', 'FontSize', 14);
+title('Comparison of Analytical and Simulated Results', 'FontSize', 16);
 
 
 % Customize plot
